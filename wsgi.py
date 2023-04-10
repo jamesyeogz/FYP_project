@@ -1,3 +1,3 @@
 from backend import app
-
-app = app.run()
+import os
+app = app.run(port=os.environ['PORT'])
