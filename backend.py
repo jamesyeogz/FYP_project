@@ -18,3 +18,6 @@ app.register_blueprint(Dashboard,url_prefix='/dashboard')
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
+
+if __name__ == '__main__':
+    app.run()
