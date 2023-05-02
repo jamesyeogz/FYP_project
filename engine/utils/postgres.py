@@ -10,8 +10,8 @@ class db_conn:
         self.Base = Base
         # Initiates all the models
         if not heroku:
-            # self.conn = create_engine('postgresql://postgres:password@localhost:5432/flask_db')
-            self.conn = create_engine(os.environ['DATABASE_URL_NOW'])
+            self.conn = create_engine('postgresql://postgres:password@localhost:5432/flask_db')
+            # self.conn = create_engine(os.environ['DATABASE_URL_NOW'])
         else:
             DATABASE_URL = os.environ.get("DATABASE_URL_NOW")
             self.conn = create_engine(DATABASE_URL)

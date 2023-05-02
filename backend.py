@@ -8,8 +8,8 @@ from flask_cors import CORS
 app = Flask(__name__,static_folder='fe/build', static_url_path='/')
 CORS(app)
 app.config["JWT_SECRET_KEY"] = "super-secret"  #Required to Change this
-# app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost:5432/flask_db'
-app.config ['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL_NOW']
+app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost:5432/flask_db'
+# app.config ['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL_NOW']
 db.init_app(app)
 jwt.init_app(app)
 app.register_blueprint(auth, url_prefix='/auth')
@@ -20,4 +20,4 @@ def index():
     return app.send_static_file('index.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run('0.0.0.0',port=5000)
